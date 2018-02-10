@@ -83,11 +83,4 @@ defmodule GameTest do
       game
     end)
   end
-
-  test "invalid move is recognized" do
-    game = Game.new_game("wibble")
-    game = Game.make_move(game, "ç")
-    assert game.game_state == :invalid_move
-    assert game.turns_left == 7
-  end
 end
