@@ -17,6 +17,7 @@ defmodule LinearFibonacci do
     {_, pid} = Cache.load_cache()
     Cache.add(pid, 0, 0)
     Cache.add(pid, 1, 1)
+    fib(pid, n)
   end
 
   defp fib(pid, n) do
