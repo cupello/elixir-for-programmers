@@ -22,8 +22,8 @@ defmodule Statistics.Server do
     {:reply, :ok, stats}
   end
 
-  def handle_info({:nodeup, node}, stats) do
-    stats = Data.update_connected_nodes(stats, node)
+  def handle_info({state, node}, stats) when state in [:nodeup, :nodedown] do
+    stats = Data.update_connected_nodes(stats, node, state)
     {:noreply, stats}
   end
 

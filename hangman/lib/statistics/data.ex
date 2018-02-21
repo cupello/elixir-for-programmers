@@ -13,8 +13,13 @@ defmodule Statistics.Data do
     |> display()
   end
 
-  def update_connected_nodes(stats, node) do
+  def update_connected_nodes(stats, node, :nodeup) do
     Map.put(stats, :connected_nodes, MapSet.put(stats.connected_nodes, node))
+    |> display()
+  end
+
+  def update_connected_nodes(stats, node, :nodedown) do
+    Map.put(stats, :connected_nodes, MapSet.delete(stats.connected_nodes, node))
     |> display()
   end
 
