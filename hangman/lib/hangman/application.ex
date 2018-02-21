@@ -15,6 +15,6 @@ defmodule Hangman.Application do
 
     Supervisor.start_link(children, options)
 
-    Hangman.Statistics.start_link()
+    Statistics.Data.start_link()
   end
 end

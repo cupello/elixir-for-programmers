@@ -1,4 +1,4 @@
-defmodule Hangman.Statistics do
+defmodule Statistics.Data do
   @me __MODULE__
 
   defstruct(
@@ -7,7 +7,7 @@ defmodule Hangman.Statistics do
   )
 
   def start_link() do
-    Agent.start_link(fn -> %Hangman.Statistics{} end, name: @me)
+    Agent.start_link(fn -> %Statistics.Data{} end, name: @me)
   end
 
   def register_new_game(_ = %{node_name: node_name}) do
