@@ -2,10 +2,8 @@ defmodule Hangman.Server do
   alias Hangman.Game
   use GenServer
 
-  def start_link(args) do
-    {:ok, pid} = GenServer.start_link(__MODULE__, nil)
-    Statistics.Data.register_new_game(args)
-    {:ok, pid}
+  def start_link() do
+    GenServer.start_link(__MODULE__, nil)
   end
 
   def init(_args) do

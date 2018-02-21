@@ -18,6 +18,6 @@ defmodule TextClient.Interact do
 
   defp new_game() do
     Node.connect(@hangman_server)
-    :rpc.call(@hangman_server, Hangman, :new_game, [node()])
+    :rpc.call(@hangman_server, Hangman, :new_game, [])
   end
 end
