@@ -5,11 +5,11 @@ Turns left: <%= @tally.turns_left %>
 </p>
 
 <p>
-Word so far: <%= @tally.letters |> Enum.join(" ") %>
+Word so far: <%= join_with_space(@tally.letters) %>
 </p>
 
 <p>
-Letters used: <%= @tally.letters_used |> Enum.join(" ") %>
+Letters used: <%= join_with_space(@tally.letters_used) %>
 </p>
 
 <form>
