@@ -12,6 +12,8 @@ Word so far: <%= join_with_space(@tally.letters) %>
 Letters used: <%= join_with_space(@tally.letters_used) %>
 </p>
 
-<form>
+<%= form_for(@conn, hangman_path(@conn, :make_move), [as: :make_move, method: :put], fn form -> %>
+<%= text_input(form, :guess) %>
+<%= submit("Make next move") %>
+<% end) %>
 
-</form>
