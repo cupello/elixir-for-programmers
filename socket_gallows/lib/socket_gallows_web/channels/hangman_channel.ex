@@ -1,5 +1,6 @@
 defmodule SocketGallowsWeb.HangmanChannel do
   use Phoenix.Channel
+  require Logger
 
   def join("hangman:game", _, socket) do
     game = Hangman.new_game()
@@ -13,6 +14,11 @@ defmodule SocketGallowsWeb.HangmanChannel do
       |> Hangman.tally()
 
     push(socket, "tally", tally)
+    {:noreply, socket}
+  end
+
+  def handle_in(invalid_message, _, socket) do
+    Logger.error("Invalid message: #{invalid_message}")
     {:noreply, socket}
   end
 end
